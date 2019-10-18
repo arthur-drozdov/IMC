@@ -1,0 +1,5 @@
+feedback:
+  script:
+  - run_kate ./src eu.gcr.io/kate-production/imc_performance_workshop
+  tags:
+  - kate2.0
