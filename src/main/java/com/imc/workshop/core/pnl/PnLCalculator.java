@@ -57,7 +57,8 @@ public class PnLCalculator {
         }
 
         public void onMarketUpdate(MarketUpdate marketUpdate) {
-            throw new UnsupportedOperationException("Function not yet implemented.");
+            var pStar = (marketUpdate.getBid().getBestPrice() + marketUpdate.getAsk().getBestPrice()) / 2;
+            this.theLastPrice = pStar;
         }
 
         public void onTrade(Trade trade) {
