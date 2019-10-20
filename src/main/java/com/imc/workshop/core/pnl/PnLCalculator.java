@@ -57,14 +57,12 @@ public class PnLCalculator {
         }
 
         public void onMarketUpdate(MarketUpdate marketUpdate) {
-            var pStar = (marketUpdate.getBid().getBestPrice() + marketUpdate.getAsk().getBestPrice()) / 2;
-            this.theLastPrice = pStar;
+            this.theLastPrice = (marketUpdate.getBid().getBestPrice() + marketUpdate.getAsk().getBestPrice()) / 2.0;
         }
 
         public void onTrade(Trade trade) {
-            // TODO: how the trade affects this current entry
+            this.theCashBalance += -1.0 * trade.getPrice() * trade.getVolume();
             this.thePosition += trade.getVolume();
-            this.theCashBalance += -1 * trade.getPrice() * trade.getVolume();
         }
 
         public String getInstrument() {

@@ -27,7 +27,7 @@ public class FullIntegrationBenchmark {
     @org.openjdk.jmh.annotations.Benchmark
     @Fork(value = 1, warmups = 0)
     @Warmup(iterations = 1, time = 5)
-    @Measurement(iterations = 1, time = 15)
+    @Measurement(iterations = 2)
     @BenchmarkMode(value = Mode.AverageTime)
     public void benchmark(BenchmarkState aBenchmarkState) {
         final List<PositionLimits> positionLimits = LimitsGenerator.replayMarketEvents(aBenchmarkState.theMarketEvents, BenchmarkState.COVARIANCES);

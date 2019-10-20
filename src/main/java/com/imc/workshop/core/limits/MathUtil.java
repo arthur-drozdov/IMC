@@ -4,11 +4,10 @@ public class MathUtil {
     public static Matrix transpose(Matrix matrix) {
         int N = matrix.getNumberOfRows();
         int M = matrix.getNumberOfColumns();
-        double[][] transposed = new double[N][M];
-        for(int i = 0; i < N; i++) {
-            for(int j = i; j < M; j++) {
+        double[][] transposed = new double[M][N];
+        for(int i = 0; i < M; i++) {
+            for(int j = 0; j < N; j++) {
                 transposed[i][j] = matrix.get(j, i);
-                transposed[j][i] = matrix.get(i, j);
             }
         }
         return new Matrix(transposed);
