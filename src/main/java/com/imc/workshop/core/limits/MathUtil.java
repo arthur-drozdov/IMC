@@ -2,10 +2,39 @@ package com.imc.workshop.core.limits;
 
 public class MathUtil {
     public static Matrix transpose(Matrix matrix) {
-        throw new UnsupportedOperationException("Function not yet implemented.");
+        int N = matrix.getNumberOfRows();
+        int M = matrix.getNumberOfColumns();
+        double[][] transposed = new double[N][M];
+        for(int i = 0; i < N; i++) {
+            for(int j = i; j < M; j++) {
+                transposed[i][j] = matrix.get(j, i);
+                transposed[j][i] = matrix.get(i, j);
+            }
+        }
+        return new Matrix(transposed);
     }
 
     public static Matrix multiply(Matrix leftMatrix, Matrix rightMatrix) {
-        throw new UnsupportedOperationException("Function not yet implemented.");
+        int N = leftMatrix.getNumberOfRows();
+        int K = leftMatrix.getNumberOfColumns(); // or rightMatrix.getNumberOfRows()
+        int M = rightMatrix.getNumberOfColumns();
+
+        double[][] res = new double[N][M];
+
+        for(int i = 0; i < N; i++){
+            for(int j = 0; j < M; j++){
+                res[i][j] = 0;
+            }
+        }
+
+        for(int i = 0; i < N; i++){
+            for(int j = 0; j < M; j++){
+                for(int k = 0; k < K; k++){
+                    res[i][j]= res[i][j] + (leftMatrix.get(i, k) * rightMatrix.get(k, j));
+                }
+            }
+        }
+
+        return new Matrix(res);
     }
 }
