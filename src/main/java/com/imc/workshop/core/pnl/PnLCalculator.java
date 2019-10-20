@@ -57,11 +57,14 @@ public class PnLCalculator {
         }
 
         public void onMarketUpdate(MarketUpdate marketUpdate) {
+            // TODO: how the market update affects this current entry
             throw new UnsupportedOperationException("Function not yet implemented.");
         }
 
         public void onTrade(Trade trade) {
-            throw new UnsupportedOperationException("Function not yet implemented.");
+            // TODO: how the trade affects this current entry
+            this.thePosition += trade.getVolume();
+            this.theCashBalance += -1 * trade.getPrice() * trade.getVolume();
         }
 
         public String getInstrument() {
