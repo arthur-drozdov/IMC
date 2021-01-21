@@ -11,7 +11,7 @@
         <maven.compiler.target>11</maven.compiler.target>
         <junit.version>4.12</junit.version>
         <assertj-core.version>3.12.0</assertj-core.version>
-        <jackson.version>2.9.8</jackson.version>
+        <jackson.version>2.12.1</jackson.version>
         <mockito.version>3.0.0</mockito.version>
         <jmh-core.version>1.21</jmh-core.version>
         <jmh-generator-annprocess.version>1.21</jmh-generator-annprocess.version>
